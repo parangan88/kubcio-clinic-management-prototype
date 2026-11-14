@@ -1,122 +1,44 @@
+// App shell: header with role switcher and demo controls; each role sees only its own screens
+// (US-28, R-09: no router). "Reset demo" is in every role (US-30); "Simulate result" is physician-only (OQ-09).
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { DemoControls } from './components/DemoControls'
+import { ResetDemoButton } from './components/ResetDemoButton'
+import { RoleSwitcher, type Role } from './components/RoleSwitcher'
+import { Nurse } from './screens/Nurse'
+import { Physician } from './screens/Physician'
+import { Reception } from './screens/Reception'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [role, setRole] = useState<Role>('reception')
+  // bumped on reset so the role screen remounts and drops selections that no longer exist
+  const [generation, setGeneration] = useState(0)
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="min-h-screen">
+      <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/90 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
+          <div className="flex items-center gap-3">
+            <span aria-hidden className="grid h-8 w-8 place-items-center rounded-lg bg-teal-700 text-sm font-bold text-white">
+              K
+            </span>
+            <div>
+              <p className="text-sm font-semibold text-slate-900">Kubcio Clinic</p>
+              <p className="text-xs text-slate-500">Prototype · synthetic data only</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            {role === 'physician' && <DemoControls />}
+            <ResetDemoButton onReset={() => setGeneration((g) => g + 1)} />
+            <RoleSwitcher role={role} onChange={setRole} />
+          </div>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      </header>
+      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+        {/* keyed by role (and reset generation) so each role starts on its first tab */}
+        {role === 'reception' && <Reception key={`reception-${generation}`} />}
+        {role === 'nurse' && <Nurse key={`nurse-${generation}`} />}
+        {role === 'physician' && <Physician key={`physician-${generation}`} />}
+      </main>
+    </div>
   )
 }
-
-export default App

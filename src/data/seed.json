@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "seedDate": "2026-11-14",
+  "patients": [
+    { "id": "p-meera", "name": "Meera Sen", "dateOfBirth": "1978-04-22", "phone": "07700 900101", "studyCallOptOut": false },
+    { "id": "m-01", "name": "Tomas Brennan", "dateOfBirth": "1961-02-11", "phone": "07700 900111", "studyCallOptOut": false },
+    { "id": "m-02", "name": "Lina Okafor", "dateOfBirth": "1972-07-30", "phone": "07700 900112", "studyCallOptOut": false },
+    { "id": "m-03", "name": "Henrik Dahl", "dateOfBirth": "1990-01-05", "phone": "07700 900113", "studyCallOptOut": false },
+    { "id": "m-04", "name": "Grace Mbeki", "dateOfBirth": "1955-09-17", "phone": "07700 900114", "studyCallOptOut": false },
+    { "id": "m-05", "name": "Paulo Ferreira", "dateOfBirth": "1968-03-25", "phone": "07700 900115", "studyCallOptOut": false },
+    { "id": "m-06", "name": "Ines Varga", "dateOfBirth": "1983-12-02", "phone": "07700 900116", "studyCallOptOut": false },
+    { "id": "m-07", "name": "Daniel Osei", "dateOfBirth": "1979-04-14", "phone": "07700 900117", "studyCallOptOut": false },
+    { "id": "m-08", "name": "Sofia Marchetti", "dateOfBirth": "1987-08-08", "phone": "07700 900118", "studyCallOptOut": false },
+    { "id": "m-09", "name": "Kwame Asante", "dateOfBirth": "1964-11-29", "phone": "07700 900119", "studyCallOptOut": false },
+    { "id": "m-10", "name": "Elena Popescu", "dateOfBirth": "1958-06-06", "phone": "07700 900120", "studyCallOptOut": false },
+    { "id": "m-11", "name": "Marek Novak", "dateOfBirth": "1966-10-10", "phone": "07700 900121", "studyCallOptOut": false },
+    { "id": "m-12", "name": "Aisha Rahman", "dateOfBirth": "1988-05-19", "phone": "07700 900122", "studyCallOptOut": false },
+    { "id": "m-13", "name": "Liam Corcoran", "dateOfBirth": "1975-02-27", "phone": "07700 900123", "studyCallOptOut": false },
+    { "id": "m-14", "name": "Yuki Tanaka", "dateOfBirth": "1970-09-03", "phone": "07700 900124", "studyCallOptOut": false },
+    { "id": "m-15", "name": "Oskar Lindgren", "dateOfBirth": "1981-01-23", "phone": "07700 900125", "studyCallOptOut": false },
+    { "id": "m-16", "name": "Fatima Haddad", "dateOfBirth": "1976-07-12", "phone": "07700 900126", "studyCallOptOut": false },
+    { "id": "m-17", "name": "Noah Whitfield", "dateOfBirth": "1993-03-08", "phone": "07700 900127", "studyCallOptOut": false },
+    { "id": "m-18", "name": "Maya Cohen", "dateOfBirth": "2010-06-01", "phone": "07700 900128", "studyCallOptOut": false },
+    { "id": "m-19", "name": "Pavel Ivanov", "dateOfBirth": null, "phone": "07700 900129", "studyCallOptOut": false },
+    { "id": "m-20", "name": "Chloe Martin", "dateOfBirth": "2008-11-14", "phone": "07700 900130", "studyCallOptOut": false },
+    { "id": "p-walkin", "name": "Olu Adeyemi", "dateOfBirth": "1985-10-02", "phone": "07700 900141", "studyCallOptOut": false },
+    { "id": "p-noreason", "name": "Hana Kowal", "dateOfBirth": "1992-12-12", "phone": "07700 900142", "studyCallOptOut": false },
+    { "id": "p-optout", "name": "Ivo Marsh", "dateOfBirth": "1959-08-21", "phone": "07700 900143", "studyCallOptOut": true },
+    { "id": "p-declined", "name": "Rosa Lindqvist", "dateOfBirth": "1963-02-14", "phone": "07700 900144", "studyCallOptOut": false }
+  ],
+  "visits": [
+    { "id": "v-01", "patientId": "m-03", "date": "2026-11-14", "time": "08:30", "bookedReason": "Annual review", "confirmedReason": "Annual review", "walkIn": false, "status": "done", "checkedInAt": "2026-11-14T08:24:00" },
+    { "id": "v-02", "patientId": "m-08", "date": "2026-11-14", "time": "08:45", "bookedReason": "Persistent cough", "confirmedReason": "Persistent cough", "walkIn": false, "status": "checkout", "checkedInAt": "2026-11-14T08:41:00" },
+    { "id": "v-03", "patientId": "m-12", "date": "2026-11-14", "time": "09:00", "bookedReason": "Ear pain", "confirmedReason": "Ear pain, left side", "walkIn": false, "status": "with_physician", "checkedInAt": "2026-11-14T08:55:00" },
+    { "id": "v-04", "patientId": "m-17", "date": "2026-11-14", "time": "09:15", "bookedReason": "Ankle review", "confirmedReason": "Ankle review", "walkIn": false, "status": "ready_for_physician", "checkedInAt": "2026-11-14T09:08:00" },
+    { "id": "v-05", "patientId": "p-meera", "date": "2026-11-14", "time": "09:30", "bookedReason": "Tiredness, thirst", "confirmedReason": null, "walkIn": false, "status": "expected", "checkedInAt": null },
+    { "id": "v-06", "patientId": "m-06", "date": "2026-11-14", "time": "09:45", "bookedReason": "Headaches", "confirmedReason": "Headaches", "walkIn": false, "status": "checked_in", "checkedInAt": "2026-11-14T09:38:00" },
+    { "id": "v-07", "patientId": "p-walkin", "date": "2026-11-14", "time": null, "bookedReason": null, "confirmedReason": "Rash on forearm", "walkIn": true, "status": "checked_in", "checkedInAt": "2026-11-14T09:50:00" },
+    { "id": "v-08", "patientId": "m-02", "date": "2026-11-14", "time": "10:15", "bookedReason": "Medication review", "confirmedReason": null, "walkIn": false, "status": "expected", "checkedInAt": null },
+    { "id": "v-09", "patientId": "p-noreason", "date": "2026-11-14", "time": "10:30", "bookedReason": null, "confirmedReason": null, "walkIn": false, "status": "expected", "checkedInAt": null },
+    { "id": "v-10", "patientId": "m-10", "date": "2026-11-14", "time": "11:00", "bookedReason": "Back pain", "confirmedReason": null, "walkIn": false, "status": "expected", "checkedInAt": null },
+    { "id": "v-11", "patientId": "p-optout", "date": "2026-11-14", "time": "11:30", "bookedReason": "Repeat prescription", "confirmedReason": null, "walkIn": false, "status": "expected", "checkedInAt": null },
+    { "id": "v-12", "patientId": "m-14", "date": "2026-11-14", "time": "14:00", "bookedReason": "Follow-up", "confirmedReason": null, "walkIn": false, "status": "expected", "checkedInAt": null },
+    { "id": "v-p1", "patientId": "m-04", "date": "2026-11-03", "time": "10:00", "bookedReason": "Foot check", "confirmedReason": "Foot check", "walkIn": false, "status": "done", "checkedInAt": "2026-11-03T09:55:00" },
+    { "id": "v-p2", "patientId": "m-16", "date": "2026-11-05", "time": "11:15", "bookedReason": "Weight gain", "confirmedReason": "Weight gain", "walkIn": false, "status": "done", "checkedInAt": "2026-11-05T11:10:00" },
+    { "id": "v-p3", "patientId": "m-15", "date": "2026-11-07", "time": "09:00", "bookedReason": "Fatigue", "confirmedReason": "Fatigue", "walkIn": false, "status": "done", "checkedInAt": "2026-11-07T08:52:00" }
+  ],
+  "observations": [
+    { "visitId": "v-01", "bpSystolic": 120, "bpDiastolic": 78, "weightKg": 74.5, "tempC": 36.6, "patientReport": "Feels well, here for the yearly check", "recordedAt": "2026-11-14T08:35:00" },
+    { "visitId": "v-02", "bpSystolic": 128, "bpDiastolic": 82, "weightKg": 68, "tempC": 37.4, "patientReport": "Coughing for two weeks, worse at night", "recordedAt": "2026-11-14T08:52:00" },
+    { "visitId": "v-03", "bpSystolic": 118, "bpDiastolic": 76, "weightKg": 61.2, "tempC": 37.9, "patientReport": "Left ear has hurt since Tuesday", "recordedAt": "2026-11-14T09:05:00" },
+    { "visitId": "v-04", "bpSystolic": 124, "bpDiastolic": 80, "weightKg": 79, "tempC": 36.7, "patientReport": "Ankle still swollen after a week", "recordedAt": "2026-11-14T09:20:00" },
+    { "visitId": "v-p3", "bpSystolic": 131, "bpDiastolic": 84, "weightKg": 88.3, "tempC": 36.5, "patientReport": "Exhausted most afternoons for two months", "recordedAt": "2026-11-07T09:06:00" }
+  ],
+  "notes": [
+    { "id": "n-meera-1", "patientId": "p-meera", "visitId": null, "date": "2025-03-12", "authorRole": "physician", "text": "Tired lately. ?diabetes, consider HbA1c if it persists." },
+    { "id": "n-m02-1", "patientId": "m-02", "visitId": null, "date": "2026-08-19", "authorRole": "physician", "text": "Known T2DM, on metformin." },
+    { "id": "n-m03-1", "patientId": "m-03", "visitId": null, "date": "2026-06-02", "authorRole": "physician", "text": "Patient has type 1 diabetes since childhood." },
+    { "id": "n-m04-1", "patientId": "m-04", "visitId": "v-p1", "date": "2026-11-03", "authorRole": "physician", "text": "Diabetic, foot check done today." },
+    { "id": "n-m05-1", "patientId": "m-05", "visitId": null, "date": "2021-06-15", "authorRole": "physician", "text": "Has type 2 diabetes." },
+    { "id": "n-m05-2", "patientId": "m-05", "visitId": null, "date": "2026-05-11", "authorRole": "physician", "text": "Knee pain after running, advised rest." },
+    { "id": "n-m05-3", "patientId": "m-05", "visitId": null, "date": "2026-09-29", "authorRole": "physician", "text": "Blood pressure reviewed, stable." },
+    { "id": "n-m06-1", "patientId": "m-06", "visitId": null, "date": "2026-07-21", "authorRole": "physician", "text": "Prediabetes, recheck HbA1c in 6 months." },
+    { "id": "n-m07-1", "patientId": "m-07", "visitId": null, "date": "2026-03-03", "authorRole": "physician", "text": "Mother has type 2 diabetes." },
+    { "id": "n-m08-1", "patientId": "m-08", "visitId": null, "date": "2026-02-17", "authorRole": "physician", "text": "Family history of diabetes; own glucose normal." },
+    { "id": "n-m09-1", "patientId": "m-09", "visitId": null, "date": "2026-04-22", "authorRole": "physician", "text": "No history of diabetes." },
+    { "id": "n-m10-1", "patientId": "m-10", "visitId": null, "date": "2026-09-09", "authorRole": "physician", "text": "Denies diabetes or hypertension." },
+    { "id": "n-m11-1", "patientId": "m-11", "visitId": null, "date": "2026-08-04", "authorRole": "physician", "text": "No history of diabetes." },
+    { "id": "n-m12-1", "patientId": "m-12", "visitId": null, "date": "2026-01-12", "authorRole": "physician", "text": "Gestational diabetes in 2019, resolved after delivery." },
+    { "id": "n-m12-2", "patientId": "m-12", "visitId": "v-03", "date": "2026-11-14", "authorRole": "nurse", "text": "Anxious about flying next week." },
+    { "id": "n-m13-1", "patientId": "m-13", "visitId": null, "date": "2026-10-27", "authorRole": "physician", "text": "?diabetes, HbA1c ordered." },
+    { "id": "n-m14-1", "patientId": "m-14", "visitId": null, "date": "2026-10-15", "authorRole": "physician", "text": "Started metformin." },
+    { "id": "n-m17-1", "patientId": "m-17", "visitId": null, "date": "2026-09-30", "authorRole": "physician", "text": "Sprained ankle, ice and rest." },
+    { "id": "n-m08-2", "patientId": "m-08", "visitId": "v-02", "date": "2026-11-14", "authorRole": "physician", "text": "Two weeks of cough, chest clear on listening. Chest X-ray to exclude infection." }
+  ],
+  "diagnoses": [
+    { "id": "d-m01-1", "patientId": "m-01", "label": "Type 2 diabetes mellitus", "status": "active", "recordedOn": "2019-05-14" },
+    { "id": "d-m11-1", "patientId": "m-11", "label": "Type 2 diabetes mellitus", "status": "active", "recordedOn": "2020-01-20" },
+    { "id": "d-m18-1", "patientId": "m-18", "label": "Type 2 diabetes mellitus", "status": "active", "recordedOn": "2024-02-10" },
+    { "id": "d-m19-1", "patientId": "m-19", "label": "Type 2 diabetes mellitus", "status": "active", "recordedOn": "2022-08-01" },
+    { "id": "d-m20-1", "patientId": "m-20", "label": "Type 2 diabetes mellitus", "status": "active", "recordedOn": "2025-03-18" },
+    { "id": "d-opt-1", "patientId": "p-optout", "label": "Type 2 diabetes mellitus", "status": "active", "recordedOn": "2018-11-02" },
+    { "id": "d-dec-1", "patientId": "p-declined", "label": "Type 2 diabetes mellitus", "status": "active", "recordedOn": "2017-06-09" },
+    { "id": "d-m03-1", "patientId": "m-03", "label": "Asthma", "status": "active", "recordedOn": "2012-04-30" }
+  ],
+  "orders": [
+    { "id": "o-1", "patientId": "m-15", "visitId": "v-p3", "test": "HbA1c", "reasonOrdered": "Two months of tiredness, check glucose control", "status": "pending", "value": null, "resultedAt": null, "reviewedAt": null, "reviewNote": null },
+    { "id": "o-2", "patientId": "m-16", "visitId": "v-p2", "test": "HbA1c", "reasonOrdered": "Gained 6 kg this year, check glucose", "status": "resulted", "value": "5.9%", "resultedAt": "2026-11-12T14:20:00", "reviewedAt": null, "reviewNote": null },
+    { "id": "o-3", "patientId": "m-04", "visitId": "v-p1", "test": "Lipid profile", "reasonOrdered": "Cardiovascular risk review", "status": "reviewed", "value": "LDL 2.4 mmol/L", "resultedAt": "2026-11-05T10:00:00", "reviewedAt": "2026-11-06T09:30:00", "reviewNote": "Within target, no change" },
+    { "id": "o-4", "patientId": "m-08", "visitId": "v-02", "test": "Chest X-ray", "reasonOrdered": "Cough over two weeks, exclude infection", "status": "pending", "value": null, "resultedAt": null, "reviewedAt": null, "reviewNote": null }
+  ],
+  "tasks": [
+    { "id": "t-1", "patientId": "m-04", "visitId": "v-p1", "assignee": "reception", "action": "Book follow-up appointment", "dueType": "date", "dueDate": "2026-11-10", "waitsOnOrderId": null, "offsetDays": null, "status": "open" },
+    { "id": "t-2", "patientId": "m-15", "visitId": "v-p3", "assignee": "reception", "action": "Book follow-up appointment", "dueType": "after_result", "dueDate": null, "waitsOnOrderId": "o-1", "offsetDays": 7, "status": "waiting" },
+    { "id": "t-3", "patientId": "m-08", "visitId": "v-02", "assignee": "reception", "action": "Book chest clinic review", "dueType": "date", "dueDate": "2026-11-21", "waitsOnOrderId": null, "offsetDays": null, "status": "open" },
+    { "id": "t-4", "patientId": "m-03", "visitId": "v-01", "assignee": "reception", "action": "Post annual review letter", "dueType": "date", "dueDate": "2026-11-14", "waitsOnOrderId": null, "offsetDays": null, "status": "done" }
+  ],
+  "studies": [
+    {
+      "id": "diabetes-adults",
+      "name": "Adults with documented diabetes",
+      "criteria": [
+        { "kind": "minAge", "years": 18 },
+        { "kind": "diagnosis", "condition": "diabetes" }
+      ]
+    }
+  ],
+  "studyDecisions": [
+    { "patientId": "m-01", "studyId": "diabetes-adults", "decision": "approve_contact", "decidedBy": "physician", "decidedAt": "2026-11-12T10:05:00" },
+    { "patientId": "p-declined", "studyId": "diabetes-adults", "decision": "approve_contact", "decidedBy": "physician", "decidedAt": "2026-11-03T11:00:00" }
+  ],
+  "outreach": [
+    { "patientId": "m-01", "studyId": "diabetes-adults", "attempts": [], "outcome": "none" },
+    {
+      "patientId": "p-declined",
+      "studyId": "diabetes-adults",
+      "attempts": [
+        { "at": "2026-11-04T09:10:00", "reached": false, "result": null },
+        { "at": "2026-11-05T15:30:00", "reached": true, "result": "declined" }
+      ],
+      "outcome": "declined"
+    }
+  ]
+}

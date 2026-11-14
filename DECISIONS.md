@@ -1,0 +1,55 @@
+# Decisions
+
+One line per decision, scope cut or rejected AI output, added as it happens (Constitution VI).
+
+- React 19 from the current Vite template instead of React 18 (plan.md Complexity Tracking; constitution PATCH recommended).
+- Matcher is rule-based, not AI: static app, and the clinic must see why a patient matched.
+- Diabetes mention that fits no rule (not positive, uncertain, denied, family, prediabetes or gestational) → needs review, "unclear note" (research R-12 class 7).
+- Study naming a condition with no rules → needs review, "no rules defined for <condition>" (research R-14).
+- OQ-03: "no / denies / not / without" negate only when before the diabetes term; "ruled out" negates anywhere, so "Diabetes not well controlled" stays positive.
+- OQ-04: a positive finding (rule 1 or 2) beats uncertain, gestational, medication and pending-test findings; only a denial creates a conflict (rule 3). Needed for demo step 7.
+- OQ-05: diabetes medications for rule 6: metformin, insulin, gliclazide, glipizide, sitagliptin, empagliflozin, dapagliflozin, semaglutide, liraglutide, dulaglutide.
+- OQ-06: resolved (non-gestational) diabetes entry on the diagnosis list → needs review.
+- Matcher tests use a stub that throws, so all 20 fail individually before the real matcher is written (red step visible per test).
+- OQ-01: nurse sees diagnoses and nurse-authored notes only; physician notes are withheld (strictest reading of "Physician assessment: No").
+- OQ-02: reviewing a result also saves the review note as a physician note, so the matcher reads it (demo step 7, S-09).
+- OQ-07: seed dates shift to the demo day on load/reset (seedDate → today); saved state keeps absolute dates.
+- OQ-08: Visit.checkedInAt added; nurse queue sorts by it; physician "time waiting" counts from intake save.
+- OQ-10: an approved patient whose current outcome is doesn't meet drops off the outreach list; the approval record is kept.
+- OQ-11: a task tied to an order that is already reviewed is created open, due review date + N.
+- Only open tasks can be marked done; waiting tasks have no date and stay waiting until their result is reviewed (AC-14.1 read narrowly).
+- Seed phone numbers use the UK 07700 900xxx range reserved for fiction; all names invented.
+- Seed order reasons are worded differently from visit reasons so the S-05 text-leak check cannot pass or fail by coincidence.
+- Store reads are plain selector functions plus a `useStoreVersion()` re-render hook; raw state is not exported (R-04, R-05).
+- Phase 2 tests limited to the four the user named plus persistence/reset; nurse-selector scan, date-shift, visit-flow (T016) and studies/outreach (T018) tests deferred to T019a.
+- Phase 3: nurse-selector visibility test added before building screens, so every role's selector is covered (Constitution II, Gate 1 spirit). T016/T018 behaviour tests still open.
+- Seed timestamps are local clinic time (no "Z"); with UTC they showed 09:38 as 03:08 PM in the reviewer's timezone. Found while walking S-01 in the browser.
+- Each role screen owns its tabs; App holds only the role and remounts the screen on switch (simpler than R-09's App-level tab state, same behaviour).
+- Added `components/ui.tsx` (badges, buttons, cards, fields, tabs) and `components/helpers.ts` (formatting, field-error hook); not in the source folder layout, kept tiny.
+- Added `selectWithPhysician()` so a physician can return to an opened visit, and `VisitSummary.receptionTasks` to show tasks sent from the visit (physician may see reception tasks per the visibility table).
+- Physician visit summary shows both results awaiting review and pending orders under "Results and orders" (AC-08.2 "results waiting for review" plus context for result-tied tasks).
+- Walk-ins (no booked time) appear after booked visits on today's list, ordered by arrival.
+- Numeric vitals use text inputs with inputMode="decimal" so "abc" reaches validation and shows the field message (AC-06.2), instead of the browser silently blanking it.
+- RTL cleanup registered in test setup because Vitest globals are off (R-03).
+- AC-09.2 note → eligibility re-run happens in the store; showing the outcome change in the UI waits for the study badge (T042).
+- Phase 4: AC-09.2 change display done early: saving a visit note now shows any study outcome change, same as a review.
+- OQ-09: "Simulate result" lives in a header demo panel shown only in the physician role; pending orders are clinical data reception must not receive.
+- reviewResult takes an optional follow-up task and validates note + task together before saving, so a bad task field cannot leave a review saved without its task (AC-17.2).
+- Review screen defaults the follow-up timing to "N days after this result"; created after the review, so it opens due review date + N (OQ-11).
+- Timestamps are compared as instants, not strings: seed times are local and action times are UTC, and string order was wrong across the two. Found while writing the AC-05.1 ordering test.
+- Results inbox row shows the study flag as "Study: needs review"; the review screen names each study that needs review.
+- After a review the order leaves the inbox; a confirmation stays on screen with the outcome change (old → new) and any task created.
+- Phase 5: study/outreach store actions were built in Phase 2; their tests (T018, incl. S-11, S-12) were written now and passed against the existing code with no changes.
+- Approve / Not eligible are offered on both the visit study panel and the candidate list, using one shared control; the store enforces the rules either way.
+- Opted-out and declined candidates keep the "Not eligible" button; only Approve is hidden (AC-21.2 says "no approve button").
+- Candidate rows open the evidence by default for needs-review patients and collapse it for meets, to keep the list scannable.
+- Reception sets "No study calls" from the outreach row ("Patient asks: no study calls") and from the checkout card; physician from the visit study panel.
+- Clearing an opt-out returns a previously approved patient (no outcome yet) to outreach; a decline is permanent per study (AC-26.2).
+- `OptOutToggle` is its own component so reception does not import the physician study components; physician study views live in `components/study.tsx` (not in the source folder layout).
+- Outreach rows show phone prominently and attempts with time and result; logging needs "Reached" or "Not reached", and a reached call needs a result (AC-25.2).
+- Phase 6: "Reset demo" is a header button in every role; it uses window.confirm, then resets the store and remounts the role screen so stale selections are dropped (AC-30.1).
+- Phase 6: the AC traceability check found 19 ACs traced to code only and AC-23.2 untraced; the outstanding visit-flow tests (T016) and the last T019a items (seed date shift, order validation) were written, all passing first time. 64 of 65 ACs are now named in a test.
+- AC-01.2 (checked-in rows visually distinct) stays verified by eye in the browser; it is styling, not behaviour.
+- Gap, not built: no patient lookup for the physician. Charts open through a visit, so doesn't-meet patients (not on the candidate list) need a visit to show their evidence. README walkthrough step 10 gives the workaround.
+- Gap: matcher contract extras (T004a: nurse notes ignored, unknown condition, negation placement, resolved entry) are implemented but not unit-tested on their own.
+- Not done in this build: push to GitHub, Vercel deploy and the live-URL walkthrough (T053, T054); left for the author. README has a live-link placeholder and no time log, by request.
